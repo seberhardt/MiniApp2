@@ -43,11 +43,45 @@ public class ResultActivity extends AppCompatActivity {
         mContext = this;
         final ArrayList<Recipe> recipeList = Recipe.getRecipesFromFile("recipes.json", this);
 
+//        ArrayList<Recipe> filteredList = new ArrayList<Recipe>();
+//        for (int r = 0; r< recipeList.size(); r++){
+//            if (recipeList.get(r).dietLabel == diet_pref){
+//               if (time_pref.contains("30 min or less") && !recipeList.get(r).prepTime.contains("hours") && Integer.parseInt(recipeList.get(r).prepTime.substring(0,2)) <= 30){
+//                   if (serving_pref.contains("less than 4") && Integer.parseInt(recipeList.get(r).servings) < 4) {
+//                       filteredList.add(recipeList.get(r)); }
+//                   else if (serving_pref.contains("4-6")&& (Integer.parseInt(recipeList.get(r).servings) <= 6) && (Integer.parseInt(recipeList.get(r).servings) >= 4)) {
+//                       filteredList.add(recipeList.get(r)); }
+//                   }
+//                   else if (serving_pref.contains("7-9") &&(Integer.parseInt(recipeList.get(r).servings)) >=7 && (Integer.parseInt(recipeList.get(r).servings) <=9)){
+//                    filteredList.add(recipeList.get(r)); }
+//            }
+//               else if (time_pref.contains("less than 1 hr") && !recipeList.get(r).prepTime.contains("hours")&& Integer.parseInt(recipeList.get(r).prepTime.substring(0,2)) <= 60){
+//                   if (serving_pref.contains("less than 4") && Integer.parseInt(recipeList.get(r).servings) < 4) {
+//                            filteredList.add(recipeList.get(r));
+//                       }
+//                    if (serving_pref.contains("less than 4") && Integer.parseInt(recipeList.get(r).servings) < 4) {
+//                    filteredList.add(recipeList.get(r)); }
+//                     else if (serving_pref.contains("4-6")&& (Integer.parseInt(recipeList.get(r).servings) <= 6) && (Integer.parseInt(recipeList.get(r).servings) >= 4)) {
+//                    filteredList.add(recipeList.get(r)); }
+//                    }
+//                     else if (serving_pref.contains("7-9") &&(Integer.parseInt(recipeList.get(r).servings)) >=7 && (Integer.parseInt(recipeList.get(r).servings) <=9)){
+//                     filteredList.add(recipeList.get(r)); }
+//               else if (time_pref.contains("more than 1 hr") && recipeList.get(r).prepTime.contains("hours")){
+//                   if (serving_pref.contains("less than 4") && Integer.parseInt(recipeList.get(r).servings) < 4) {
+//                           filteredList.add(recipeList.get(r));
+//                       }
+//                if (serving_pref.contains("less than 4") && Integer.parseInt(recipeList.get(r).servings) < 4) {
+//                    filteredList.add(recipeList.get(r)); }
+//                else if (serving_pref.contains("4-6")&& (Integer.parseInt(recipeList.get(r).servings) <= 6) && (Integer.parseInt(recipeList.get(r).servings) >= 4)) {
+//                    filteredList.add(recipeList.get(r)); }
+//                 else if (serving_pref.contains("7-9") &&(Integer.parseInt(recipeList.get(r).servings)) >=7 && (Integer.parseInt(recipeList.get(r).servings) <=9)){
+//                filteredList.add(recipeList.get(r)); }
+//
+//            }
+//        }
 
-        ArrayList<Recipe> filteredList = new ArrayList<Recipe>();
-        HashSet<Recipe> fromList = new HashSet<Recipe>(recipeList);
 
-        RecipeAdapter adapter = new RecipeAdapter(this, filteredList);
+        RecipeAdapter adapter = new RecipeAdapter(this, recipeList);
 
         mImageButton = findViewById(R.id.notif_button);
         mListView = findViewById(R.id.recipe_list_view);

@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.Filter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -28,6 +29,7 @@ public class SearchActivity extends AppCompatActivity {
     Spinner mServingsSpinner;
     Activity goToResultActivity;
     Button submitButton;
+    //TextView numberView;
     ArrayList<Recipe> unfilteredArrayList;
     ArrayList<Recipe> recipeArrayList;
 
@@ -48,6 +50,7 @@ public class SearchActivity extends AppCompatActivity {
         labelList.addAll(hs);
 
         mContext = this;
+        //numberView = findViewById(R.id.numberview);
         submitButton = findViewById(R.id.submit_button);
         mDietSpinner = findViewById(R.id.diet_spinner);
         mTimeSpinner = findViewById(R.id.time_spinner);
@@ -64,6 +67,7 @@ public class SearchActivity extends AppCompatActivity {
         ArrayAdapter<String> dietAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, labelList);
         dietAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+        //numberView.setText("there are " + recipeArrayList.size() + " recipes");
         mDietSpinner.setAdapter(dietAdapter);
         mTimeSpinner.setAdapter(adapter2);
         mServingsSpinner.setAdapter(adapter1);
@@ -85,7 +89,6 @@ public class SearchActivity extends AppCompatActivity {
         intent2.putExtra("time_search", mTimeSpinner.getSelectedItem().toString());
         intent2.putExtra("serving_search", mServingsSpinner.getSelectedItem().toString());
         intent2.putExtra("recipeList", recipeArrayList);
-
         startActivity(intent2);
     }
 

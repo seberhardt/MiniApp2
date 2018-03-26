@@ -78,7 +78,7 @@ public class RecipeAdapter extends BaseAdapter {
             holder.timeTextView = convertView.findViewById(R.id.recipe_list_time);
             holder.thumbnailImageView = convertView.findViewById(R.id.recipe_list_thumbnail);
             holder.notifButton = convertView.findViewById(R.id.notif_button);
-
+        //    holder.numberTextView = convertView.findViewById(R.id.numberview);
             //add holder to view
             convertView.setTag(holder);
         }
@@ -91,6 +91,7 @@ public class RecipeAdapter extends BaseAdapter {
         TextView dietTextView = holder.dietTextView;
         ImageView thumbnailImageView = holder.thumbnailImageView;
         ImageButton notifButton = holder.notifButton;
+       // TextView numberTextView = holder.numberTextView;
 
         final Recipe recipe = (Recipe)getItem(position);
 
@@ -110,6 +111,8 @@ public class RecipeAdapter extends BaseAdapter {
         dietTextView.setText(recipe.dietLabel);
         dietTextView.setTextSize(14);
         dietTextView.setTextColor(ContextCompat.getColor(mContext, R.color.colorPrimaryDark));
+
+     //   numberTextView.setText("There are " + mRecipeList.size() + " recipes!");
 
         final Intent openRecipe = new Intent(Intent.ACTION_VIEW);
         openRecipe.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -139,7 +142,6 @@ public class RecipeAdapter extends BaseAdapter {
         return convertView;
     }
 
-
     private static class ViewHolder{
         public TextView titleTextView;
         public TextView servingTextView;
@@ -147,6 +149,7 @@ public class RecipeAdapter extends BaseAdapter {
         public ImageView thumbnailImageView;
         public TextView dietTextView;
         public ImageButton notifButton;
+      //  public TextView numberTextView;
 
     }
 
